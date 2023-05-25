@@ -30,3 +30,10 @@
 		"description": "make jsp template"
 	}
 ```
+
+---
+## 서버 포트 번호 변경
+server.port = 바꿀 포트 번호
+
+---
+### ※ webapp 폴더는 톰캣 고정 폴더이다.

@@ -7,9 +7,12 @@
         <title>Insert title here</title>
     </head>
     <body>
-        <h1>잘가~~~~~~~~~~</h1>
-        <form action="/chap01/hello" method="get">
-            <input type="submit" value="다시 돌아갈게" style="width: 200px; height: 200px; background-color: red;">
-        </form>
+        <h1>${name}의 취미 목록</h1>
+        <p>${hList}</p>
+        <ol>
+            <c:forEach var="n" items = "${hList}">
+                <li>${n}입니다.</li>
+            </c:forEach>
+        </ol>
     </body>
 </html>

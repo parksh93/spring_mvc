@@ -7,9 +7,6 @@
         <title>Insert title here</title>
     </head>
     <body>
-        <h1>잘가~~~~~~~~~~</h1>
-        <form action="/chap01/hello" method="get">
-            <input type="submit" value="다시 돌아갈게" style="width: 200px; height: 200px; background-color: red;">
-        </form>
+        <h1>${name}님의 주문 결과입니다. ${tableNum}번 테이블에 ${fName}음식을 가져다드립니다.</h1>
     </body>
 </html>

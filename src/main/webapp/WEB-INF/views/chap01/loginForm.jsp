@@ -7,9 +7,10 @@
         <title>Insert title here</title>
     </head>
     <body>
-        <h1>잘가~~~~~~~~~~</h1>
-        <form action="/chap01/hello" method="get">
-            <input type="submit" value="다시 돌아갈게" style="width: 200px; height: 200px; background-color: red;">
+        <form action="/chap01/login" method="POST">
+            <input type="text" name="id" placeholder="아이디입력">
+            <input type="password" name="pw" placeholder="비밀번호 입력">
+            <input type="submit" value="로그인">
         </form>
     </body>
 </html>

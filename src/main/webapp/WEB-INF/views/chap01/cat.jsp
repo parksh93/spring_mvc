@@ -7,9 +7,9 @@
         <title>Insert title here</title>
     </head>
     <body>
-        <h1>잘가~~~~~~~~~~</h1>
-        <form action="/chap01/hello" method="get">
-            <input type="submit" value="다시 돌아갈게" style="width: 200px; height: 200px; background-color: red;">
-        </form>
+        <h1>고양이 등록 완료</h1>
+        <h1>이름 : ${name}</h1>
+        <h1>나이 : ${age}</h1>
+        <h1>품종 : ${kind}</h1>
     </body>
 </html>
