@@ -7,7 +7,7 @@
         <title>Insert title here</title>
     </head>
     <body>
-        <h1>키오스크</h1>
+        <h1>${title}</h1>
         <form action="/chap03/foodOrder" method="get">
             주문자명 : <input name = "name" type="text"><br>
             주문테이블번호 : <input type="number" name="tableNum"><br>

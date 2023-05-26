@@ -37,3 +37,58 @@ server.port = 바꿀 포트 번호
 
 ---
 ### ※ webapp 폴더는 톰캣 고정 폴더이다.
+
+---
+## TDD (테스트 주도 개발) 방법
+1. 원본 클래스에 원하는 기능을 구현하지는 말고 선언만 해둔다.
+2. 테스트 코드 내부에 원하는 기능대로 작성되었을때 어떤 결과가 나올지 단언해둔다.
+3. 테스트가 통과될때까지 원본 클래스를 수정하면서 계속 테스트 해본다.
+* GWT 패턴(AAA 패턴) 
+  - GIVEN (테스트를 워해 사전에 설정해야 하는 데이터를 선언하는 구간)
+* WHEN (테스트 대상 메서드를 실행하는 구간으로, 보통 한 줄로 작성)
+* THEN (테스트 결과가 이렇게 나올것이다 하는 단언)
+    - assertEquals(expected, actual);
+### 사용 예시
+```
+    @Override
+    public List<Score> findAll() {
+        return null;
+    }
+    
+   //Test Class 
+       @Test
+    public void findAllTest(){
+        //GWT 패턴(AAA 패턴)
+        //GIVEN (테스트를 워해 사전에 설정해야 하는 데이터를 선언하는 구간)
+        //findAll은 특별한 조건 없이 전체 데이터를 가져오므로 GIVEN이 없음
+        ScoreRepository repository = new ScoreRepositoryImpl();
+
+        //WHEN (테스트 대상 메서드를 실행하는 구간으로, 보통 한 줄로 작성)
+        List<Score> result = repository.findAll();
+
+        //THEN (테스트 결과가 이렇게 나올것이다 하는 단언)
+        // 나는 result 내부에 3개의 Score가 있다고 단언합니다.
+        //ScoreMap에 사전설정으로 3개의 데이터를 넣었으므로, 3개가 나와야 정상인 상황
+        //방식 1 (예전)
+        System.out.println(result.size() == 3);
+        //방식 2
+        assertEquals(3, result.size());
+        
+        //현재결과 :  result가 null로 Exception발생
+    }
+```
+위 방식으로 먼저 작성 후
+findAll()을 작성하여 원하는 결과가 나올때까지 Test한다.
+```
+    @Override
+    public List<Score> findAll() {
+        List<Score> studentList = new ArrayList<>();
+        for (Score score: scoreMap.values()) {
+            studentList.add(score);
+        }
+        return studentList;
+    }
+    
+    //결과 : true
+```
+true로 원하는 결과가 나왔기 때문에 해당 테스트 통과
