@@ -12,7 +12,7 @@ public class Score {
     private String name;
     private int korScore;
     private int engScore;
-    private int mathSocre;
+    private int mathScore;
 
     private int studentNumber;
     private int total;

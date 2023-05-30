@@ -1,6 +1,9 @@
 package com.spring.mvc.chap04.repository;
 
 import com.spring.mvc.chap04.entity.Score;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,9 +11,11 @@ import java.util.List;
 import java.util.Map;
 
 
+@Repository
 public class ScoreRepositoryImpl implements ScoreRepository{
     //key : 학번, value : 성적정보
     private static final Map<Integer,Score> scoreMap;
+
     private static int sequence;   //primary key로 사용할 학번을 체크
 
     static {
@@ -43,7 +48,9 @@ public class ScoreRepositoryImpl implements ScoreRepository{
 
     @Override
     public boolean deleteByStudentNumber(int studentNumber) {
-        return false;
+        if (!scoreMap.containsKey(studentNumber))  return false;
+        scoreMap.remove(studentNumber);
+        return true;
     }
 
     @Override
